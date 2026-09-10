@@ -129,6 +129,22 @@
     gap: 1.75rem;
   }
 
+  .row { display: flex; gap: 0.9rem; align-items: flex-start; }
+  .logo {
+    width: 30px;
+    height: 30px;
+    flex: none;
+    border-radius: 7px;
+    border: 1px solid var(--rule);
+    background: var(--ground);
+    object-fit: contain;
+    padding: 4px;
+    margin-top: 1px;
+  }
+  .row-body { flex: 1; min-width: 0; }
+  .co { color: inherit; text-decoration: none; }
+  .co:hover, .co:focus-visible { color: var(--accent); }
+
   .row-head {
     display: flex;
     justify-content: space-between;
@@ -197,25 +213,34 @@
     <h2 class="label">Experience</h2>
     <ul>
       <li class="row">
+        <img class="logo" src="data:image/png;base64,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" alt="Rippling logo">
+        <div class="row-body">
         <div class="row-head">
-          <h3>Rippling <span class="sep">·</span> <span class="title">Software Engineer II</span></h3>
+          <h3><a class="co" href="https://www.rippling.com">Rippling</a> <span class="sep">·</span> <span class="title">Software Engineer II</span></h3>
           <span class="years">Aug 2024 — Present</span>
         </div>
         <p class="row-note">Benefits carrier integrations — carrier migrations, multi-entity benefits, and the latency and security work behind them.</p>
+        </div>
       </li>
       <li class="row">
+        <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAADLUlEQVR42u3ZX0hTURwH8LO7P3du3m2u3Nbm0nSWyGyBWYma1qBAlHqJUIJCw4f+PBQR9NhDUBjUmw9FRj5EaY+GBinaDJboMlNTpywnMqetOd3m3HZvDyFI7Bam93Lv/H1ef+zs7Ht3fuecDSEAAAAAAAAAAAAAAAAAAAA+EDA1sEySJqw2342x8SGcCx/OD7hbXzMxNsbUpFejS/G1eHCCjYBwMaFnamzGAiIpEo163tWwERBFkXHeBYQQQuPz3YNTi7YahBDJ4NuQM77+V7zrQRupZUaZQWUpJvB0M4YJpZt5rUKqO07gmkq6+uBsm2XS2/uF1wH9L63igLo0+/JXEYbvSVQf9XScHJ57283kHERcDUdDmJRlOQ2TQoFYnag+tdhXy3Q4jPegrSzJspyGEbpw3P7PNwfcrS/ZmAvnAlJItZLy3CsOESY1JKp7lyce2l0vHlEUiXZcQHJcLarIvWqTCOX7E9V/htwttuknt+NkjLU5cSYgqViBVZiudaSIVUWJ6ssRb0ePs+lSNB6h2JwXa006T2stSpEoDXR1HZFXl4rvttLVA2FPlym9rNTtd9gDYU+E93exP5Vk19/KUFkat3xqRmSo19lk9ATGfUm1xPzhuU/b80QxWYG+qjHpepDb77BTiAxtx1hpMmOtEBMlV0CBsCfSN/0sZyWy+H4bvkVSQqqVJlUP2uhIZu3FfbuOPaerO2bfHHIu2Ib+0YsQRVHJs4utsxjOVP4tnFFPp3XC2zPEleMHq+egfN2p4jyttZ2u/vt+1d7FpcMrawGZ0kvzC/RVH//SxG+wdb/iXECZ6sNZhcZztMtmfnn8gd3V8pit+xWnAtIrzdqjWRfGEBIk7He+0Exz3/TTO2zerzgTkIbIVZVk130TICzhlrwUnmvrdTbVs32/4sQ2r5bvlZ/IvT5J92vg+u18LR6cRZv/Q2AtEltx+4Lf7S5f/0g0vkrxLqCzB+8N4yLCzPQTDkeXBjrH7hdFYkGKV0uMjXAQQihFrCzM152u5mEPoljrummyjArenaR/hFzNBK4pZ2WnwUSpCAAAAAAAAAAAAAAAAAAAYEf7BXV+DOgXd+ItAAAAAElFTkSuQmCC" alt="Zeta logo">
+        <div class="row-body">
         <div class="row-head">
-          <h3>Zeta <span class="sep">·</span> <span class="title">Software Development Engineer II</span></h3>
+          <h3><a class="co" href="https://www.zeta.tech/in/">Zeta</a> <span class="sep">·</span> <span class="title">Software Development Engineer II</span></h3>
           <span class="years">May 2022 — Aug 2024</span>
         </div>
         <p class="row-note">Built the UPI issuer and PSP for banks, scaled to 7M+ users and 900k+ transactions a day at 99.99% availability.</p>
+        </div>
       </li>
       <li class="row">
+        <img class="logo" src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMEZBQUZGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U0FQPC90aXRsZT48cGF0aCBkPSJNMCA2LjA2NHYxMS44NzJoMTIuMTNMMjQgNi4wNjR6bTMuMjY0IDIuMjA4aC4wMDVjLjg2My4wMDEgMS45MTUuMjQ1IDIuNjc2LjYzM2wtLjgyIDEuNDNjLS44MzUtLjQwNC0xLjI1NS0uNDQyLTEuNzMtLjQ2Ny0uNzA4LS4wMzgtMS4wNjQuMjE1LTEuMDY5LjQ4OC0uMDA3LjMzMi42NjkuNjMzIDEuMzA1LjgzOC45NjQuMzA2IDIuMTkuNzE1IDIuMzc3IDEuOUw3Ljc3IDguNDM3aDIuMDQ2bDIuMDY0IDUuNTc2LS4wMDctNS41NzVoMi4zN2MyLjI1NyAwIDMuMzE4Ljc2NCAzLjMxOCAyLjUxOSAwIDEuNTc1LTEuMDkgMi41MTQtMi45MzYgMi41MTRoLS43NjNsLS4wMSAyLjA5NC0zLjU4OC0uMDAzLS4yNS0uOTA4Yy0uMzcuMTIyLS43ODcuMTg5LTEuMjMuMTg5LS40NTYgMC0uODg1LS4wNzEtMS4yNjMtLjJsLS4zNTguOTE5LTIgLjAwNi4wOS0uNDYyYy0uMDI5LjAyNS0uMDU3LjA1LS4wODcuMDc0LS41MzUuNDMtMS4yMDguNjI5LTIuMDM3LjY0NGwtLjIxMy4wMDJhNS4wNzUgNS4wNzUgMCAwIDEtMi41ODEtLjY3NWwuNzMtMS40NDhjLjc5LjQ2NyAxLjI4Ni41NzIgMS45NTYuNTU4LjM0Ny0uMDA3LjU5OC0uMDcuNzYxLS4yMzlhLjU1Ny41NTcgMCAwIDAgLjE1Ni0uMzY5Yy4wMDctLjM3Ni0uNTMtLjU1My0xLjE4NS0uNzU2LS41MzEtLjE2NC0xLjEzNS0uMzg5LTEuNjA2LS43MzUtLjU1OS0uNDEtLjgyNS0uOTI0LS44MTItMS42NWExLjk5IDEuOTkgMCAwIDEgLjU2Ni0xLjM3N2MuNTE5LS41MzcgMS4zNTctLjg2MyAyLjM2My0uODYzem0xMC41OTcgMS42N3YxLjkwNGguNTIxYy42OTQgMCAxLjI0Ny0uMjMgMS4yNDgtLjk2NCAwLS43MDktLjU1NC0uOTQtMS4yNDgtLjk0em0tNS4wODcuNzY3bC0uNzQ4IDIuMzYyYy4yMjMuMDg1LjQ4MS4xMzMuNzU3LjEzMy4yNjggMCAuNTItLjA0Ny43NDItLjEyNmwtLjczNi0yLjM3eiIvPjwvc3ZnPg==" alt="SAP Labs India logo">
+        <div class="row-body">
         <div class="row-head">
-          <h3>SAP Labs India <span class="sep">·</span> <span class="title">Software Development Engineer</span></h3>
+          <h3><a class="co" href="https://www.sap.com">SAP Labs India</a> <span class="sep">·</span> <span class="title">Software Development Engineer</span></h3>
           <span class="years">Jul 2020 — Apr 2022</span>
         </div>
         <p class="row-note">Streamed learning-platform events through Kafka into the data platform behind search, analytics and recommendations.</p>
+        </div>
       </li>
     </ul>
   </section>
